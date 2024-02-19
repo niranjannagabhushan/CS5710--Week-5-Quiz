@@ -1,0 +1,29 @@
+If you run the command `print(D1['yoghurt'])`, you will get an error message because the key `'yoghurt'` does not exist in the dictionary `D1`. 
+
+The dictionary `D1` was created using the function `f` which takes two lists, `keys` and `vals`, and creates a dictionary where the elements of `keys` are the keys and the elements of `vals` are the corresponding values. In this case, `k` is the list of keys and `v` is the list of values. So, the dictionary `D1` will have the following key-value pairs:
+
+```
+{
+    'milk': 1,
+    'eggs': 12,
+    'bread': 2,
+    'cheese': 5,
+    'jam': 2
+}
+```
+
+As you can see, `'yoghurt'` is not among the keys of `D1`, hence attempting to access `D1['yoghurt']` will result in a `KeyError` since the key does not exist in the dictionary.
+
+
+
+Yes, there will be a difference between `D1['bread']` and `D2['bread']` due to the change in the loop's iteration order in the function `f`.
+
+When the for loop is changed to `for i in range(len(keys) - 1, -1, -1):`, it iterates over the `keys` list in reverse order, starting from the last element and going towards the first element. 
+
+Let's first analyze the effect of this change on the creation of the dictionary `D2`:
+- With the original loop, the keys and values are added to the dictionary in the order they appear in the `keys` and `vals` lists, resulting in the dictionary `D1` with keys in the order: 'milk', 'eggs', 'bread', 'cheese', 'jam'.
+- With the reversed loop, the keys and values are added to the dictionary in the reverse order, resulting in the dictionary `D2` with keys in the order: 'jam', 'cheese', 'bread', 'eggs', 'milk'.
+
+So, `D1['bread']` would access the value associated with the key `'bread'` in the original order, which is `2`, while `D2['bread']` would access the value associated with the key `'bread'` in the reversed order, which is also `2`.
+
+Therefore, in this specific scenario, `D1['bread']` and `D2['bread']` would give the same result because the key `'bread'` retains the same index position in both `D1` and `D2`.
